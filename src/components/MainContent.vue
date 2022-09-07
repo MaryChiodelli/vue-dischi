@@ -1,5 +1,6 @@
 <template>
   <main>
+    <LoadingComponent v-if="productList.length === 0" />
     <div class="container">
       <div class="row">
         <div class="col" v-for="(product, index) in productList" :key="index">
@@ -11,12 +12,14 @@
 </template>
 
 <script>
+  import LoadingComponent from './LoadingComponent.vue';
   import CardComponent from './CardComponent.vue';
   import axios from 'axios';
 
   export default {
     name: 'MainContent',
     components: {
+      LoadingComponent,
       CardComponent
     },
     data() {

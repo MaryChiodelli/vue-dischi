@@ -27,10 +27,22 @@ img {
 }
 
 .col {
-    width: calc(100% / 5);
+    width: calc(100% / 2);
     padding: 0 1.25rem;
 }
 
 .card {
     background-color: #2E3A46;
+}
+
+@media (min-width: 768px) {
+    .col {
+        width: calc(100% / 3);
+    }
+}
+
+@media (min-width: 1200px) {
+    .col {
+        width: calc(100% / 5);
+    }
 }
