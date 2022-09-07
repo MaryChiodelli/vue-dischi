@@ -2,8 +2,8 @@
   <main>
     <div class="container">
       <div class="row">
-        <div class="col">
-          <CardComponent />
+        <div class="col" v-for="(product, index) in productList" :key="index">
+          <CardComponent :img="product.poster" :author="product.author" :title="product.title" :year="product.year" />
         </div>
       </div>
     </div>
@@ -36,7 +36,11 @@
 
 <style lang="scss" scoped>
   main {
-    padding: 5rem 0;
+    padding: 5rem 0 3.75rem;
     background-color: #1E2D3B;
+  }
+
+  .col {
+    margin-bottom: 1.25rem;
   }
 </style>
