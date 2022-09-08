@@ -8,6 +8,19 @@
       <option>Jazz</option>
       <option>Metal</option>
     </select>
+    <select v-model="autor" @change="$emit('searchAuthor', autor)">
+      <option value="">Seleziona un autore</option>
+      <option>Bon Jovi</option>
+      <option>Queen</option>
+      <option>Sting</option>
+      <option>Steve Gadd Band</option>
+      <option>Iron Maiden</option>
+      <option>Eric Clapton</option>
+      <option>Deep Purple</option>
+      <option>Metallica</option>
+      <option>Dave Weckl</option>
+      <option>Michael Jacjson</option>
+    </select>
   </header>
 </template>
 
@@ -16,7 +29,8 @@
     name: 'MainHeader',
     data() {
       return {
-        genre: ''
+        genre: '',
+        autor: ''
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <MainHeader @search="onSearch" />
-    <MainContent :genre="search" />
+    <MainHeader @searchAuthor="getSearchedAutor" @search="onSearch" />
+    <MainContent :genre="search" :author="searchedAutor" />
   </div>
 </template>
 
@@ -17,13 +17,17 @@ export default {
   },
   data() {
     return {
-      search: ''
+      search: '',
+      searchedAutor: ''
     }
   },
   methods: {
     onSearch(data) {
       console.log(data);
       this.search = data;
+    },
+    getSearchedAutor(data) {
+      this.searchedAutor = data
     }
   }
 }

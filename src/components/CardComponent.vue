@@ -1,22 +1,19 @@
 <template>
   <div class="card">
-    <img class="card-img" :src="img" :alt="title">
-    <h3 class="card-title">{{ title }}</h3>
-    <div class="card-author">{{ author }}</div>
-    <div class="card-year">{{ year }}</div>
+    <img class="card-img" :src="info.poster" :alt="info.title">
+    <h3 class="card-title">{{ info.title }}</h3>
+    <div class="card-author">{{ info.author }}</div>
+    <div class="card-year">{{ info.year }}</div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'CardComponent',
-  props: {
-    img: String,
-    title: String,
-    author: String,
-    year: String
+  export default {
+    name: 'CardComponent',
+    props: {
+      info: Object
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
