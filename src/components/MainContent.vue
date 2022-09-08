@@ -3,7 +3,7 @@
     <LoadingComponent v-if="productList.length === 0" />
     <div class="container">
       <div class="row">
-        <div class="col" v-for="(product, index) in productList" :key="index">
+        <div class="col" v-for="(product, index) in filteredSongs" :key="index">
           <CardComponent :img="product.poster" :author="product.author" :title="product.title" :year="product.year" />
         </div>
       </div>
@@ -22,6 +22,12 @@
       LoadingComponent,
       CardComponent
     },
+    props: {
+      genre: {
+        type: String,
+        default: ''
+      }
+    },
     data() {
       return {
         productList: []
@@ -33,6 +39,13 @@
         .then((res) => {
           this.productList.push(...res.data.response);
         });
+    },
+    computed: {
+      filteredSongs() {
+        return this.productList.filter((product) => {
+          return product.genre.includes(this.genre);
+        });
+      }
     }
   }
 </script>

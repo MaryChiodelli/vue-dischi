@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <MainHeader />
-    <MainContent />
+    <MainHeader @search="onSearch" />
+    <MainContent :genre="search" />
   </div>
 </template>
 
@@ -14,6 +14,17 @@ export default {
   components: {
     MainHeader,
     MainContent
+  },
+  data() {
+    return {
+      search: ''
+    }
+  },
+  methods: {
+    onSearch(data) {
+      console.log(data);
+      this.search = data;
+    }
   }
 }
 </script>
